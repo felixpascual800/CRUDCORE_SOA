@@ -2,12 +2,14 @@
 
 using CRUDCORE.Datos;
 using CRUDCORE.Models;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace CRUDCORE.Controllers
 {
+   
     public class MantenedorController : Controller
     {
+
 
         ContactoDatos _ContactoDatos = new ContactoDatos();
 
@@ -53,6 +55,7 @@ namespace CRUDCORE.Controllers
             var ocontacto = _ContactoDatos.Obtener(IdContacto);
             return View(ocontacto);
         }
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
@@ -94,6 +97,7 @@ namespace CRUDCORE.Controllers
 
 
         }
+
         [HttpPost]
         public IActionResult Login(LoginModel model)
         {

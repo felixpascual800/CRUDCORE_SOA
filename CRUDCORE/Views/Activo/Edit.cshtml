@@ -1,0 +1,33 @@
+﻿@model CRUDCORE.Models.ActivoModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Editar Activo
+    </div>
+    <div class="card-body">
+        <form asp-action="Editar" asp-controller="Activo" method="post">
+            <input asp-for="IdActivo" type="hidden" class="form-control">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <input asp-for="Descripcion" type="text" class="form-control">
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Estado</label>
+                <input asp-for="Estado" type="text" class="form-control">
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Index" asp-controller="Activo" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

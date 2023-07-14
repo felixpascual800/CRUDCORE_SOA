@@ -1,0 +1,39 @@
+﻿@model List<CRUDCORE.Models.ActivoModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de Activos
+    </div>
+    <div class="card-body">
+        <a asp-action="Create" asp-controller="Activo" class="btn btn-success"><i class="bi bi-plus-circle"></i> Crear Nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.Estado</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Activo" class="btn btn-primary btn-sm" asp-route-id="@item.IdActivo">Editar</a>
+                            <a asp-action="Delete" asp-controller="Activo" class="btn btn-danger btn-sm" asp-route-id="@item.IdActivo">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

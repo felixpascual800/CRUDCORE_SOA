@@ -1,0 +1,22 @@
+﻿@model CRUDCORE.Models.ActivoModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Activo
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="Activo" method="post">
+            <input asp-for="IdActivo" type="hidden" class="form-control">
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el activo: @Html.DisplayFor(model => model.Nombre)?
+            </div>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Listar" asp-controller="Activo" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+
